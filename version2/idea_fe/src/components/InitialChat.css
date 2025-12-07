@@ -1,0 +1,236 @@
+.chat-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 16px;
+  /* background: linear-gradient(to bottom right, #ffffff, #fff7cc, #f3e8ff); */
+  background: linear-gradient(to bottom right, #ffffff, #ffffff, #ffffff);
+  font-family: sans-serif;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.draft-container {
+  background: linear-gradient(to bottom right, #ffffff, #ffffff, #ffffff);
+  margin: 0 15px;
+}
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding: 5px 12px;
+  position: sticky;
+  top: 0px;
+  background: #ffffff;
+}
+
+.chat-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #6b21a8;
+  text-transform: capitalize;
+}
+
+.new-chat-button {
+  background-color: #facc15;
+  border: none;
+  padding: 4px 12px;
+  border-radius: 8px;
+  color: white;
+  font-size: 0.875rem;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+.new-chat-button:hover {
+  background-color: #eab308;
+}
+
+.chat-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 12px 24px;
+}
+
+.chat-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chat-bubble {
+  font-size: 1rem;
+  padding: 8px 16px;
+  max-width: 80%;
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  position: relative;
+  border: 1px solid #f3e8ff;
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+}
+
+.chat-bubble.user {
+  /* background-color: #f3eef9; */
+  margin-left: auto;
+  text-align: start;
+}
+
+.reason {
+  position: absolute;
+  bottom: 45%;
+  right: -12px;
+}
+
+.chat-bubble.assistant {
+  background-color: white;
+  color: #333;
+  text-align: left;
+}
+
+.chat-input-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background-color: white;
+  border: 1px solid #f3e8ff;
+  border-radius: 16px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+  margin-top: 12px;
+  position: sticky;
+  bottom: 10px;
+}
+
+.chat-input {
+  flex: 1;
+  border: none;
+  font-size: 0.9rem;
+  outline: none;
+  color: #333;
+}
+
+.chat-input::placeholder {
+  color: #aaa;
+}
+
+.send-button {
+  /* background-color: #c59c51; */
+  /* background-color: linear-gradient(to right, #c59c51, #eab308); */
+  background: linear-gradient(to right, #c59c51, #eab308);
+  border: none;
+  padding: 8px;
+  border-radius: 9999px;
+  cursor: pointer;
+  color: #ffffff;
+  /* #2e013c; */
+}
+
+.send-button:hover {
+  background-color: #c59c51;
+}
+
+.send-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.typing-animation {
+  display: flex;
+  align-items: center;
+  padding: 4px;
+}
+
+.typing-animation span {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #6b21a8;
+  border-radius: 50%;
+  margin-right: 4px;
+  animation: typing 1.5s ease-in-out infinite;
+}
+
+.typing-animation span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-animation span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing {
+  0%,
+  100% {
+    transform: scale(0.7);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.startPocButton {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  /* background-color: #facc15; */
+  background: linear-gradient(to right, #c59c51, #eab308);
+  color: white;
+  font-size: 0.875rem;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  width: 200px;
+}
+
+/* add transition for hover startPocButton */
+.startPocButton:hover {
+  background: linear-gradient(to right, #eab308, #c59c51);
+}
+
+#rephrasedIdea,
+#selectedTitle {
+  font-size: 1rem;
+  border-radius: 16px;
+}
+
+#rephrasedIdea:hover,
+#selectedTitle:hover {
+  cursor: pointer;
+  border: 1px solid #cca6f5;
+  border-radius: 16px;
+}
+
+/* Global tooltip styles */
+.tooltip {
+  position: relative;
+  cursor: help;
+}
+
+.tooltip .tooltip-content {
+  visibility: hidden;
+  opacity: 0;
+  width: 350px;
+  background-color: #f9f9fc;
+  color: #333;
+  text-align: left;
+  border-radius: 8px;
+  padding: 12px 16px;
+  position: absolute;
+  z-index: 1000;
+  bottom: 125%; /* Position above */
+  /* left: 50%; */
+  transform: translateX(-5%);
+  transform: translateY(90%);
+  box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.1);
+  font-size: 0.9rem;
+  font-family: "Segoe UI", "Calibri", sans-serif;
+  transition: opacity 0.3s ease;
+}
+
+.tooltip:hover .tooltip-content {
+  visibility: visible;
+  opacity: 1;
+}
